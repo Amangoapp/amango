@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+header {
+  width: 100%;
+  background-color: green;
+  text-align: center;
+  padding: 2% 0 2% 0;
+}
+.sidebar {
+  float: left;
+  background-color: blue;
+  width: 20%;
+  height: 100%;
+}
+
+.sidebar a {
+  display: block;
+  padding: 2% 0 2% 1%;
+  margin: 1% 0 1% 0;
+}
+
+.main {
+  background-color: red;
+  width: 80%;
+  float: right;
+}
+.clear {
+  clear: both;
+}
+a {
+  color: white;
+}
+
+footer {
+  text-align: center;
+}

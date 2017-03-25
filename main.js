@@ -6,14 +6,22 @@ const url = require('url')
 let mainWindow
 
 app.on('ready', function() {
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({
+    width: 800,
+    height: 600,
+    show: false,
+    titleBarStyle: 'hidden'
+  })
 
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'SCManager.html'),
+    pathname: path.join(__dirname, 'frontend/index.html'),
     protocol: 'file:',
     slashes: true
   }))
 
+  mainWindow.once('ready-to-show', () => {
+      mainWindow.show()
+  })
   mainWindow.on('closed', function () {
     mainWindow = null
   })

@@ -5,9 +5,13 @@
   "repository": "https://github.com/scmanager/scmanager",
   "author": "Hum4n01d <hum4n01d@icloud.com>",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "nodemon --exec electron ."
   },
   "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
   "dependencies": {
     "electron": "^1.6.2"
   }

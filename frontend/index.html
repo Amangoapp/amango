@@ -11,15 +11,19 @@
     <header>
       <h1>Amango</h1>
     </header>
-    <div class="top-nav">
-
+    <div class="navigation">
+      <div class="back-forward">
+        <button type="button" class="navigation-backward"><</button>
+        <button type="button" class="navigation-forward">></button>
+      </div>
+      <input type="text" class="navigation-url-bar">
     </div>
     <div class="tabs-wrap">
       <div class="tabs-nav">
-
+        <button type="button" id="new-tab">Add Account +</button>
       </div>
       <div class="tabs">
-        <div class="tab">
+        <!-- <div class="tab">
           <webview src="https://soundcloud.com" partition="1"></webview>
         </div>
         <div class="tab">
@@ -30,7 +34,7 @@
         </div>
         <div class="tab">
           <webview src="https://soundcloud.com" partition="4"></webview>
-        </div>
+        </div> -->
       </div>
     </div>
     <script src="renderer.js" charset="utf-8"></script>

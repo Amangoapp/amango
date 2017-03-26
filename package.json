@@ -6,9 +6,13 @@
   "author": "Hum4n01d <hum4n01d@icloud.com>",
   "license": "MIT",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "dev": "nodemon --exec electron ."
   },
   "dependencies": {
     "electron": "^1.6.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.11.0"
   }
 }

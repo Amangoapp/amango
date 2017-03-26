@@ -1,5 +1,6 @@
-body {
+html, body {
   font-family: 'Asap', sans-serif;
+  height: 100%;
 }
 .title-bar {
   height: 22px;
@@ -19,11 +20,14 @@ h1 {
   font-size: 300%;
 }
 .side-bar {
-  float: left;
   background-color: #4c6085;
   width: 20%;
-  height: 100%;
   color: #f2f2f2;
+  -ms-flex: 0 100px;
+  -webkit-box-flex:  0;
+  -moz-box-flex:  0;
+  -ms-box-flex:  0;
+  box-flex:  0;
 }
 .side-bar a {
   display: block;
@@ -34,10 +38,15 @@ h1 {
 }
 .main {
   background-color: #7796cb;
-  width: 75%;
-  float: right;
   padding: 2% 0 3% 5%;
   color: #282828;
+  min-height: 100%;
+  -ms-flex: 1;
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  -ms-box-flex: 1;
+  box-flex: 1;
+  width: 75%;
 }
 .clear {
   clear: both;
@@ -52,4 +61,17 @@ footer {
   border-top: 3px solid #ccc;
   text-align: center;
   width: 80%;
+}
+
+.wrapper {
+  display:  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-box;
+  display: box;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  -ms-box-orient: horizontal;
+  box-orient: horizontal;
 }

@@ -2,6 +2,7 @@ const {BrowserWindow, app} = require('electron')
 
 const path = require('path')
 const url = require('url')
+const pug = require('electron-pug')()
 
 let mainWindow
 
@@ -14,7 +15,7 @@ app.on('ready', function() {
   })
 
   mainWindow.loadURL(url.format({
-    pathname: path.join(__dirname, 'frontend/index.html'),
+    pathname: path.join(__dirname, 'frontend/index.pug'),
     protocol: 'file:',
     slashes: true
   }))

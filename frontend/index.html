@@ -2,6 +2,7 @@
 <html>
   <head>
     <link rel="stylesheet" href="styles.css">
+    <script type="text/javascript" src="render.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Asap:400,400i,700" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <meta charset="utf-8">
@@ -12,22 +13,20 @@
     <header>
       <h1>SCManager</h1>
     </header>
+    <div class="wrapper">
+
+
     <div class="side-bar">
-      <div class="side-item">
+      <div class="side-item" id="soundcloud">
         <a href="#">Soundcloud</a>
       </div>
-      <div class="side-item">
-        <a href="#">Soundcloud</a>
-      </div>
-      <div class="side-item">
-        <a href="#">Soundcloud</a>
+      <div class="side-item" id="scratch">
+        <a href="#">Scratch</a>
       </div>
     </div>
-    <div class="main">
-      <h1>SoundCloud</h2>
-      <h2>Username: N3RDY</h2>
+    <div class="main" id="output">
+      <h1></h1>
     </div>
-    <div class="clear">
     </div>
     <footer>&copy; SCManager</footer>
     <script src="renderer.js" charset="utf-8"></script>

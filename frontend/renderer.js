@@ -11,6 +11,7 @@ var urlBox = document.querySelector('.navigation-url-bar')
 
 var tabsStore = []
 var loadedTabs = JSON.parse(localStorage.getItem('currentTabs'))
+var numTabs
 
 if (loadedTabs) {
   var largestId = 0
@@ -24,10 +25,10 @@ if (loadedTabs) {
     }
   })
 
-
+  numTabs = largestId
+} else {
+  numTabs = 0
 }
-
-var numTabs = 0
 
 function clearTabs() {
   localStorage.removeItem('currentTabs')
@@ -79,6 +80,7 @@ function createTab(index, url) {
   newTab.appendChild(webview)
   tabsWrap.appendChild(newTab)
   tabNavWrap.appendChild(navTab)
+  numTabs++;
 }
 
 function addTab(index, url) {
@@ -134,7 +136,6 @@ tabNavWrap.addEventListener('click', function (e) {
 
 newTab.addEventListener('click', function (e) {
   addTab(numTabs+1, 'https://soundcloud.com')
-  numTabs++;
 })
 
 generateNav();

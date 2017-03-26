@@ -21,9 +21,9 @@ backForward.addEventListener('click', (e) => {
   });
 
   if (el.className === 'navigation-backward') {
-    // webview.executeJavascript('window.history.back()')
+    webview.executeJavaScript('window.history.back()')
   } else if (el.className === 'navigation-forward') {
-
+    webview.executeJavaScript('window.history.forward()')
   }
 })
 

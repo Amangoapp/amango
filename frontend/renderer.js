@@ -7,32 +7,66 @@ var newTab = document.querySelector("button#new-tab");
 var tabsWrap = document.querySelector(".tabs");
 var backForward = document.querySelector('.back-forward')
 var partitionI = 0
+var urlBox = document.querySelector('.navigation-url-bar')
+
+var tabsStore = []
+var loadedTabs = JSON.parse(localStorage.getItem('currentTabs'))
+
+if (loadedTabs) {
+  var largestId = 0
+
+  loadedTabs.map(t => {
+    tabsStore.push(t)
+    createTab(t.id, t.url)
+
+    if (t.id > largestId) {
+      largestId = t.id
+    }
+  })
+
+
+}
 
 var numTabs = 0
 
-backForward.addEventListener('click', (e) => {
-  var el = e.target
+function clearTabs() {
+  localStorage.removeItem('currentTabs')
+  tabsStore = []
+}
+
+function runJsInActiveWebview(js) {
   var webviews = document.querySelectorAll('.tab webview')
   var webviewIndex = lastActiveTab.getAttribute('data-id') - 1
   var webview = webviews[webviewIndex]
 
-  webview.addEventListener("dom-ready", function(){
-    webview.openDevTools();
-  });
+  webview.executeJavaScript(js)
+}
 
-  if (el.className === 'navigation-backward') {
-    webview.executeJavaScript('window.history.back()')
-  } else if (el.className === 'navigation-forward') {
-    webview.executeJavaScript('window.history.forward()')
+urlBox.addEventListener('keyup', e => {
+  if (e.which === 13) {
+    var url = urlBox.value
+    var code = `window.location.assign("${url}")`
+
+    runJsInActiveWebview(code)
   }
 })
 
-function addTab(index, url) {
+backForward.addEventListener('click', (e) => {
+  var el = e.target
+
+  if (el.className === 'navigation-backward') {
+    runJsInActiveWebview('window.history.back()')
+  } else if (el.className === 'navigation-forward') {
+    runJsInActiveWebview('window.history.forward()')
+  }
+})
+
+function createTab(index, url) {
   var navTab = document.createElement("button");
 
   navTab.innerText = "Soundcloud "+ index
   navTab.classList += "nav-tab-item"
-  navTab.setAttribute('data-id', index);
+  navTab.setAttribute('data-id', index)
 
   var newTab = document.createElement('div')
   newTab.classList.add('tab')
@@ -43,15 +77,27 @@ function addTab(index, url) {
   partitionI++
 
   newTab.appendChild(webview)
-
   tabsWrap.appendChild(newTab)
+  tabNavWrap.appendChild(navTab)
+}
 
-  tabNavWrap.appendChild(navTab);
+function addTab(index, url) {
+  createTab(index, url)
+  addTabToLocalStorage(index, url)
+}
+
+function addTabToLocalStorage(index, url) {
+  tabsStore.push({
+    url: url,
+    id: index
+  })
+
+  localStorage.setItem('currentTabs', JSON.stringify(tabsStore))
 }
 
 function generateNav() {
   for (var i = 0; i < tabs.length; i++) {
-    var index = i + 1;
+    var index = i + 1 + largestId;
 
     addTab(index)
   }

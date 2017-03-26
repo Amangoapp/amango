@@ -1,6 +1,14 @@
+/* Basic reset, font, electron title bar */
+* {
+  box-sizing: border-box;
+}
 html, body {
   font-family: 'Asap', sans-serif;
   height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
 }
 .title-bar {
   height: 22px;
@@ -8,6 +16,8 @@ html, body {
   -webkit-user-select: none;
   -webkit-app-region: drag;
 }
+
+/* Big header */
 header {
   margin-top: -22px;
   width: 100%;
@@ -19,24 +29,49 @@ header {
 h1 {
   font-size: 300%;
 }
-.side-bar {
+.tabs-wrap {
+  display: flex;
+  height: 100%;
+  flex-grow: 1
+}
+.tab {
+  flex-grow: 1;
+  display: flex;
+}
+.nav-tab-item {
+  flex-grow: 1;
+  background-color: #7796cb;
+  border: 0;
+  padding: 20px;
+  border-bottom: 3px solid #34425b;
+}
+.tabs {
+  display: flex;
+  flex-grow: 1
+}
+.wrapper {
+  display: flex;
+}
+
+.tabs-nav {
+  display: flex;
+  flex-direction: column;
+}
+.tab webview {
+  flex-grow: 1;
+}
+
+/* Tabs */
+/*.tabs-nav {
   background-color: #4c6085;
   width: 20%;
   color: #f2f2f2;
-  -ms-flex: 0 100px;
-  -webkit-box-flex:  0;
-  -moz-box-flex:  0;
-  -ms-box-flex:  0;
-  box-flex:  0;
 }
-.side-bar a {
-  display: block;
-  padding: 5% 0 5% 10%;
-}
-.side-item {
+.tab-nav .nav-tab-item {
   border-bottom: 3px solid #34425b;
 }
-.main {
+
+.tabs {
   background-color: #7796cb;
   padding: 2% 0 3% 5%;
   color: #282828;
@@ -58,17 +93,4 @@ footer {
   border-top: 3px solid #ccc;
   text-align: center;
   width: 80%;
-}
-
-.wrapper {
-  display:  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-box;
-  display: box;
-  -ms-flex-direction: row;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -ms-box-orient: horizontal;
-  box-orient: horizontal;
-}
+}*/

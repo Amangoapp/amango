@@ -12,22 +12,19 @@
     <header>
       <h1>SCManager</h1>
     </header>
-    <div class="wrapper">
+    <div class="tabs-wrap">
+      <div class="tabs-nav">
 
-
-    <div class="side-bar">
-      <div class="side-item" id="soundcloud">
-        <a href="#">Soundcloud</a>
       </div>
-      <div class="side-item" id="scratch">
-        <a href="#">Scratch</a>
+      <div class="tabs">
+        <div class="tab">
+          <webview src="https://soundcloud.com"></webview>
+        </div>
+        <div class="tab">
+          <webview src="https://twitter.com"></webview>
+        </div>
       </div>
     </div>
-    <div class="main" id="output">
-      <h1></h1>
-    </div>
-    </div>
-    <footer>&copy; SCManager</footer>
     <script src="renderer.js" charset="utf-8"></script>
   </body>
 </html>

@@ -60,6 +60,14 @@ h1 {
 .tab webview {
   flex-grow: 1;
 }
+.nav-tab-item:focus {
+  outline: none;
+}
+
+.active-nav-tab {
+  background-color: #4c6085;
+}
+
 
 /* Tabs */
 /*.tabs-nav {

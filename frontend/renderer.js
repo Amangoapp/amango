@@ -46,6 +46,7 @@ function runJsInActiveWebview(js) {
 urlBox.addEventListener('keyup', e => {
   if (e.which === 13) {
     var url = urlBox.value
+
     var code = `window.location.assign("${url}")`
 
     runJsInActiveWebview(code)
@@ -65,7 +66,7 @@ backForward.addEventListener('click', (e) => {
 function createTab(index, url) {
   var navTab = document.createElement("button");
 
-  navTab.innerText = "Soundcloud "+ index
+  navTab.innerText = "Soundcloud"
   navTab.classList += "nav-tab-item"
   navTab.setAttribute('data-id', index)
 
@@ -74,7 +75,7 @@ function createTab(index, url) {
 
   var webview = document.createElement('webview')
   webview.src = url
-  webview.setAttribute('partition', partitionI)
+  webview.setAttribute('partition', 'persist:'+partitionI)
   partitionI++
 
   newTab.appendChild(webview)

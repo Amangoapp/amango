@@ -23,11 +23,12 @@ header {
   width: 100%;
   background-color: #2a4494;
   text-align: center;
-  padding: 20px;
+  padding: 10px;
   color: #f2f2f2;
 }
 header h1 {
   margin: 0;
+  font-size: 175%;
 }
 h1 {
   font-size: 300%;
